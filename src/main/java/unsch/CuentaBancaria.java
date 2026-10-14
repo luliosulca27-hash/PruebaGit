@@ -1,3 +1,4 @@
+
 package unsch;
 
 public class CuentaBancaria {
@@ -9,16 +10,24 @@ public class CuentaBancaria {
     }
 
     public void depositar(double monto) {
-        saldo += monto;
+        if (monto > 0) {
+            saldo += monto;
+        }
+    }
+
+    public void retirar(double monto) {
+        if (monto > 0 && monto <= saldo) {
+            saldo -= monto;
+        }
     }
 
     public double obtenerSaldo() {
         return saldo;
     }
-
-    public void retirar(double monto) {
-    if (monto <= saldo) {
-        saldo -= monto;
+    public void transferir(CuentaBancaria destino, double monto) {
+        if (monto > 0 && monto <= saldo) {
+            this.saldo -= monto;
+            destino.depositar(monto);
+        }
     }
 }
-    }
