@@ -2,10 +2,9 @@ name: CI Java Maven
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "feature-transferencia" ]
   pull_request:
     branches: [ "main" ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
